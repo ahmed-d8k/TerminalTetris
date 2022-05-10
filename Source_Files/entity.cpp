@@ -1,7 +1,7 @@
 
 
 
-#include "entity.h"
+#include "..\Header_Files\entity.h"
 
 Entity::Entity(int x, int y, char c): x(x), y(y), b(c) {}
 Entity::~Entity(){}
