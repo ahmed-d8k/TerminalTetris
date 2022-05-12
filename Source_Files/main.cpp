@@ -2,12 +2,14 @@
 
 #include "..\Header_Files\render.h"
 #include "..\Header_Files\entity.h"
-#include "..\Header_Files\wall_unit.h"
+#include "..\Header_Files\wall_unit.h" //remove
+#include  "..\Header_Files\wall.h"
 
 
 
 //Todo List
-    //Basic Rendering
+    //Basic Rendering DONE
+    //Create Boundary Object
 int main(){
     bool running = true;
     while(running){
@@ -15,13 +17,13 @@ int main(){
         //Game Logic
 
         //Render
-        Wall_Unit w (0,0);
-        Render::refresh_screen(&w);
+        Wall w;
+        Render::refresh_screen(w);
         
 
 
 
-        running = false;
+        //running = false;
     }
 
     std::cout << "Program Finish Succesfully\n";

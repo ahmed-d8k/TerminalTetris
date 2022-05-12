@@ -3,6 +3,7 @@
 
 #include "entity.h"
 #include "screen.h"
+#include "wall.h"
 
 
 
@@ -11,9 +12,10 @@ class Render {
     public:
         static void clear_screen();
         static void draw_unit(Entity *e);
+        static void refresh_screen(Wall &w);
+        static void render_engine(Wall &w);
+
         static void draw_screen(Entity *e);
-        static void refresh_screen(Entity *e);
-        static void render_engine(Entity *e);
 };
 
 #endif
