@@ -6,6 +6,7 @@
 class Wall_Unit: public Entity{
     public:
         Wall_Unit(int x, int y);
+        ~Wall_Unit();
 };
 
 #endif

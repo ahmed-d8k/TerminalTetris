@@ -6,7 +6,7 @@
 class Entity{
     protected:
         int x, y;
-        char b;
+        char body;
         
     public:
         static std::deque<Entity*> entities;

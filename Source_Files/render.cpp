@@ -25,47 +25,6 @@ void Render::render_engine(Game_Map &m){
         }
         std::cout << "\n";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //bool e_drawn;
-    //for(int i = 0; i < Screen::SCREEN_HEIGHT; i++){
-        //for(int j = 0; j< Screen::SCREEN_WIDTH; j++){
-
-
-            //e_drawn = false;
-
-            //Wall
-            /**for(Entity *e : w.get_wall()){
-                if((e->get_y() == i) && (e->get_x() == j)){
-                    draw_unit(e);
-                    e_drawn = true;
-                }
-            }**/
-
-
-
-
-
-            //if(e_drawn == false){std::cout << "~"; }
-        //}
-        //std::cout << "\n";
-    //}
 }
 
 void Render::refresh_screen(Game_Map &m){

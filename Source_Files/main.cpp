@@ -12,10 +12,20 @@
 //Todo List
     //Basic Rendering DONE
     //Create Boundary Object DONE
-    //Create Map
+    //Create Map DONE
+    //Create Player Block
+        //Square
+        //L Right
+        //L Left
+        //Z Right
+        //Z Left
+        //T
+        //Line
+    //Player Control
+    //Collision
+    //Check if row full, rmove and drop structure
 int main(){
     bool running = true;
-    Wall w;
     Game_Map m;
     while(running){
 
