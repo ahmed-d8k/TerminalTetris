@@ -1,10 +1,12 @@
 
-
+#include <algorithm>
 
 #include "..\Header_Files\entity.h"
 
-Entity::Entity(int x, int y, char c): x(x), y(y), b(c) {}
-Entity::~Entity(){}
+std::deque<Entity*>Entity::entities;
+
+Entity::Entity(int x, int y, char c): x(x), y(y), b(c) {entities.push_back(this); }
+Entity::~Entity(){entities.erase(std::remove(entities.begin(), entities.end(), this), entities.end()); }
 
 
 

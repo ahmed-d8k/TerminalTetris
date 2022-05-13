@@ -1,13 +1,17 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <deque>
+
 class Entity{
     protected:
         int x, y;
         char b;
+        
     public:
+        static std::deque<Entity*> entities;
         Entity(int x, int y, char c);
-        ~Entity();
+        virtual ~Entity(); //=0?
         int get_x();
         int get_y();
         char get_body();
