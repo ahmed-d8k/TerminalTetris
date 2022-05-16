@@ -11,4 +11,6 @@ P_Block::P_Block(int x, char c):
     body(c)
 {
 
-}//fill vec s times with specified body type
+}
+
+P_Block::~P_Block(){}

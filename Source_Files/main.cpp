@@ -6,6 +6,7 @@
 #include "..\Header_Files\wall_unit.h" //remove
 #include  "..\Header_Files\wall.h"
 #include "..\Header_Files\game_map.h"
+#include "..\Header_Files\p_square.h"
 
 
 
@@ -24,12 +25,17 @@
     //Player Control
     //Collision
     //Check if row full, rmove and drop structure
+
+//Issues
+    //Possible problem of some objects having pointers to entitys that were deleted by another object
 int main(){
     bool running = true;
     Game_Map m;
+    P_Square p;
     while(running){
 
         //Game Logic
+        
 
         //Render
         m.update_map();
@@ -41,5 +47,5 @@ int main(){
         running = false;
     }
 
-    std::cout << "Program Finish Succesfully\n";
+    std::cout << "Program Finished Succesfully\n";
 }
