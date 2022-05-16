@@ -2,11 +2,7 @@
 #include <list>
 
 #include "..\Header_Files\render.h"
-#include "..\Header_Files\entity.h"
-#include "..\Header_Files\wall_unit.h" //remove
-#include  "..\Header_Files\wall.h"
-#include "..\Header_Files\game_map.h"
-#include "..\Header_Files\p_square.h"
+#include "..\Header_Files\game.h"
 
 
 
@@ -15,7 +11,7 @@
     //Create Boundary Object DONE
     //Create Map DONE
     //Create Player Block
-        //Square
+        //Square DONE
         //L Right
         //L Left
         //Z Right
@@ -29,22 +25,19 @@
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object
 int main(){
-    bool running = true;
-    Game_Map m;
-    P_Square p;
-    while(running){
+    Game g;
+    while(g.is_running()){
 
         //Game Logic
-        
+        g.engine();
 
         //Render
-        m.update_map();
-        Render::refresh_screen(m);
+        Render::refresh_screen(g.get_map());
         
 
 
 
-        running = false;
+        break;
     }
 
     std::cout << "Program Finished Succesfully\n";

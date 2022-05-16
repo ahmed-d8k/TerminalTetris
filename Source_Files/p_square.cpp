@@ -3,17 +3,6 @@
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
 #include "..\Header_Files\screen.h"
-
-/**
-        P_Block(int x, char c);
-        virtual ~P_Block() =0;
-        virtual void rotate() =0;
-        virtual void shift_left() =0;
-        virtual void shift_right() =0;
-        **/
-        //int size, pc_countdown, max_pc_countdown;
-        //bool collish, place_collish;
-        //char body;
     
 P_Square::P_Square(): 
     P_Block::P_Block(4, '@')
