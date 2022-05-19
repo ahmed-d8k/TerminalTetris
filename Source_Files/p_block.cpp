@@ -1,8 +1,9 @@
-
+#include <iostream>
 
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
 #include "..\Header_Files\entity.h"
+#include "..\Header_Files\logic_map.h"
 
 P_Block::P_Block(int x, char c):
     size(x),
@@ -21,11 +22,18 @@ void P_Block::fall_down(){
     }
 }
 
-void P_Block::ground_collision(){
-    for(Block_Unit *b: p_vec){
+bool P_Block::ground_collision(Logic_Map &lm){
+    std::vector<std::vector<char>> *map = lm.get_lmap();
 
+    char pos_state;
+    for(Block_Unit *b: p_vec){
+        pos_state = (*map)[b->get_y()+1][b->get_x()];
+        if(pos_state == 'g'){
+            return true;
+        }
     }
+    return false;
 }
 
 //Not Implemented
-void P_Block::wall_collision(){}
+bool P_Block::wall_collision(Logic_Map &lm){}

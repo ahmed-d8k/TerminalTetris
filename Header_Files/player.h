@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "p_block.h"
+#include "logic_map.h"
 
 class Player{
     protected:
@@ -11,7 +12,8 @@ class Player{
     public:
         Player();
         ~Player();
-        void fall();
+        void fall(Logic_Map &lm); //Temp argument
+        void movement_engine(Logic_Map &lm);
 };
 
 #endif

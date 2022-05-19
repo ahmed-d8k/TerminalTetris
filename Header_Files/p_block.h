@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "block_unit.h"
+#include "logic_map.h"
 
 class P_Block{
     friend class Block_unit;
@@ -19,8 +20,8 @@ class P_Block{
         virtual void shift_left() =0;
         virtual void shift_right() =0;
         void fall_down ();
-        void ground_collision();
-        void wall_collision();
+        bool ground_collision(Logic_Map &lm);
+        bool wall_collision(Logic_Map &lm);
 
 };
 

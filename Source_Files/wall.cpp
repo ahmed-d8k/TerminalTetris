@@ -11,9 +11,14 @@ Wall::Wall():
 {   
     int x = 0, y = 0;
     for(int i = 0; i < unit_count; i++){
-        if((y < (Screen::SCREEN_HEIGHT - 1)) && (x < (Screen::SCREEN_WIDTH - 2))){ //Left Wall
+        //if((y < (Screen::SCREEN_HEIGHT - 1)) && (x < (Screen::SCREEN_WIDTH - 2)))
+        if((y < (Screen::SCREEN_HEIGHT - 1)) && (x == 0)){ //Left Wall
             wall_vec.push_back((new Wall_Unit(x,y, false)));
             y++;
+        }
+        else if((y == (Screen::SCREEN_HEIGHT - 1)) && (x == 0)){
+            wall_vec.push_back((new Wall_Unit(x,y, false)));
+            x++;
         }
         else if((y == (Screen::SCREEN_HEIGHT - 1)) && (x < (Screen::SCREEN_WIDTH - 1))){ //Bottom Wall
             wall_vec.push_back((new Wall_Unit(x,y,true)));

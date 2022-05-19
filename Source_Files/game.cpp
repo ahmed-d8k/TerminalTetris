@@ -44,7 +44,7 @@ void Game::engine(){
 
     inc_game_clock();
     if((game_clock % tick_interval) == 0){
-        p.fall();
+        p.movement_engine(lm);
 
         m.update_map();
         lm.update_lmap();
