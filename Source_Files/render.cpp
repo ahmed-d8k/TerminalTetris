@@ -33,5 +33,21 @@ void Render::refresh_screen(Game_Map &m){
 
 }
 
+void Render::render_engine(Logic_Map &m){
+    std::vector<std::vector<char>> *map = m.get_lmap();
+    for (std::vector<char> row : *map){
+        for(char c: row){
+            std::cout << c;
+        }
+        std::cout << "\n";
+    }
+}
+
+void Render::refresh_screen(Logic_Map &m){
+    Render::clear_screen();
+    Render::render_engine(m);
+
+}
+
 
 

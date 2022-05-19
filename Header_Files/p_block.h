@@ -9,7 +9,6 @@ class P_Block{
     friend class Block_unit;
     protected:
         int size, pc_countdown, max_pc_countdown;
-        bool collish, place_collish;
         char body;
         std::vector<Block_Unit*> p_vec;
         //std::vector<Block_Unit*> pb_vec;
@@ -20,6 +19,8 @@ class P_Block{
         virtual void shift_left() =0;
         virtual void shift_right() =0;
         void fall_down ();
+        void ground_collision();
+        void wall_collision();
 
 };
 

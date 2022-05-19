@@ -6,6 +6,7 @@
 
 
 
+
 //Todo List
     //Basic Rendering DONE
     //Create Boundary Object DONE
@@ -18,6 +19,7 @@
         //Z Left
         //T
         //Line
+    //Bottom wall needs to be recognized as a place collision
     //Player Control
     //Collision
     //Check if row full, rmove and drop structure
@@ -32,7 +34,8 @@ int main(){
         g.engine();
 
         //Render
-        Render::refresh_screen(g.get_map());
+        //Render::refresh_screen(g.get_map());
+        Render::refresh_screen(g.get_lmap());
         
 
     }

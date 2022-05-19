@@ -3,6 +3,7 @@
 #include "..\Header_Files\game_map.h"
 #include "..\Header_Files\player.h"
 #include "..\Header_Files\wall.h"
+#include "..\Header_Files\logic_map.h"
 
 #include <iostream>
 
@@ -13,6 +14,7 @@
 
 Game::Game():
     m(Game_Map()),
+    lm(Logic_Map()),
     p(Player()),
     w(Wall()),
     game_clock(0),
@@ -24,6 +26,7 @@ Game::~Game(){} //TODO
 
 //Getter
 Game_Map& Game::get_map(){return m; }
+Logic_Map& Game::get_lmap(){return lm; }
 
 bool Game::is_running(){return running; }
 
@@ -37,13 +40,14 @@ void Game::inc_game_clock(){
 }
 
 void Game::engine(){
-    if(game_clock == 0){m.update_map(); } //Boundary Case
+    if(game_clock == 0){m.update_map(); lm.update_lmap();} //Boundary Case
 
     inc_game_clock();
     if((game_clock % tick_interval) == 0){
         p.fall();
 
         m.update_map();
+        lm.update_lmap();
     }
     
 }
