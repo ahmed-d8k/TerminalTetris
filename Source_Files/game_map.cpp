@@ -20,17 +20,21 @@ std::vector<std::vector<char>>* Game_Map::get_map(){
 }
 
 
-//Not sure if this is giving me what i want
+//Don't like this implementation atm
 void Game_Map::clear_map(){
-    for (std::vector<char> row : *map){
-        row.assign(Screen::SCREEN_WIDTH, bg);
-    }
+    delete map;
+    map = new std::vector<std::vector<char>> (Screen::SCREEN_HEIGHT, std::vector<char>(Screen::SCREEN_WIDTH, bg));
+
+
+    //for (std::vector<char> row : *map){
+    //    row.assign(Screen::SCREEN_WIDTH, bg);
+    //}
 }
 
 void Game_Map::update_map(){
     clear_map();
     for(Entity *e: Entity::entities){
-        map->at(e->get_y()).at(e->get_x()) = e->get_body(); 
+        map->at(e->get_y()).at(e->get_x()) = e->get_body();
     }
 }
 

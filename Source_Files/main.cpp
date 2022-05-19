@@ -35,9 +35,6 @@ int main(){
         Render::refresh_screen(g.get_map());
         
 
-
-
-        break;
     }
 
     std::cout << "Program Finished Succesfully\n";

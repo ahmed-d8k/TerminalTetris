@@ -11,6 +11,7 @@ class P_Block{
         int size, pc_countdown, max_pc_countdown;
         bool collish, place_collish;
         char body;
+        std::vector<Block_Unit*> p_vec;
         //std::vector<Block_Unit*> pb_vec;
     public:
         P_Block(int x, char c);
@@ -18,6 +19,7 @@ class P_Block{
         virtual void rotate() =0;
         virtual void shift_left() =0;
         virtual void shift_right() =0;
+        void fall_down ();
 
 };
 
