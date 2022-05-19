@@ -35,7 +35,8 @@ int main(){
 
         //Render
         //Render::refresh_screen(g.get_map());
-        Render::refresh_screen(g.get_lmap());
+        //Render::refresh_screen(g.get_lmap());
+        Render::refresh_screen(g.get_map(), g.get_lmap());
         
 
     }

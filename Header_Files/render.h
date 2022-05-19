@@ -19,6 +19,8 @@ class Render {
         static void render_engine(Game_Map &m);
         static void refresh_screen(Logic_Map &m);
         static void render_engine(Logic_Map &m);
+        static void refresh_screen(Game_Map &m, Logic_Map &lm);
+        static void render_engine(Game_Map &m, Logic_Map &lm);
         static void draw_screen(Entity *e);
 };
 
