@@ -1,5 +1,7 @@
 #include <iostream>
 #include <list>
+#include <chrono>
+#include <thread>
 
 #include "..\Header_Files\render.h"
 #include "..\Header_Files\game.h"
@@ -26,6 +28,7 @@
 
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object
+    //Time handling needs to be shared by both rendering and game
 int main(){
     Game g;
     while(g.is_running()){
@@ -36,7 +39,8 @@ int main(){
         //Render
         //Render::refresh_screen(g.get_map());
         //Render::refresh_screen(g.get_lmap());
-        Render::refresh_screen(g.get_map(), g.get_lmap());
+        Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
         
 
     }

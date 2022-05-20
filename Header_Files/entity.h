@@ -20,6 +20,7 @@ class Entity{
         bool is_wall();
         void set_x(int new_x);
         void set_y(int new_y);
+        void set_ground_true();
         //virtual int temp() =0;
 };
 

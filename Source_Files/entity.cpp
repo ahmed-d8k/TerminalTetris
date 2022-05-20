@@ -20,3 +20,4 @@ bool Entity::is_wall(){return wall; }
 //Setter
 void Entity::set_x(int new_x){x = new_x; }
 void Entity::set_y(int new_y){y = new_y; }
+void Entity::set_ground_true(){ground = true; }

@@ -28,11 +28,17 @@ bool P_Block::ground_collision(Logic_Map &lm){
     char pos_state;
     for(Block_Unit *b: p_vec){
         pos_state = (*map)[b->get_y()+1][b->get_x()];
-        if(pos_state == 'g'){
+        if(pos_state == 'G' || pos_state == 'g'){
             return true;
         }
     }
     return false;
+}
+
+void P_Block::set_ground(){
+    for(Block_Unit *b: p_vec){
+        b->set_ground_true();
+    }
 }
 
 //Not Implemented

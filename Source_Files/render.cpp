@@ -6,6 +6,8 @@
 #include "..\Header_Files\render.h"
 #include "..\Header_Files\screen.h"
 
+int Render::iter_since_last_render = 0;
+
 void Render::clear_screen(){
     system("cls");
 }
@@ -72,7 +74,21 @@ void Render::render_engine(Game_Map &m, Logic_Map &lm){
 void Render::refresh_screen(Game_Map &m, Logic_Map &lm){
     Render::clear_screen();
     Render::render_engine(m, lm);
+    /*
+    if(Render::iter_since_last_render % Render::render_cycle == 0){
+        
+    }
+    inc_render_clock();*/
+}
 
+void Render::inc_render_clock(){
+    if(Render::iter_since_last_render <= 100000){
+        Render::iter_since_last_render++;
+    }
+    else{
+        Render::iter_since_last_render = 1;
+    }
+    
 }
 
 

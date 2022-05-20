@@ -5,7 +5,7 @@
 #include "..\Header_Files\entity.h"
 
 Game_Map::Game_Map():
-    bg('~')
+    bg(' ')
 {
     map = new std::vector<std::vector<char>> (Screen::SCREEN_HEIGHT, std::vector<char>(Screen::SCREEN_WIDTH, bg));
 }

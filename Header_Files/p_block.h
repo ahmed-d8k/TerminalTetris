@@ -22,6 +22,7 @@ class P_Block{
         void fall_down ();
         bool ground_collision(Logic_Map &lm);
         bool wall_collision(Logic_Map &lm);
+        void set_ground();
 
 };
 

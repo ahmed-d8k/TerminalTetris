@@ -36,11 +36,14 @@ void Logic_Map::clear_lmap(){
 void Logic_Map::update_lmap(){
     clear_lmap();
     for(Entity *e: Entity::entities){
-        if(e->is_ground() == true){
-            lmap->at(e->get_y()).at(e->get_x()) = 'g';
+        if(e->is_ground() == true && e->is_wall() == true){
+            lmap->at(e->get_y()).at(e->get_x()) = 'G';
         }
-        else if(e->is_wall() == true){
+        else if(e->is_ground() == false && e->is_wall() == true){
             lmap->at(e->get_y()).at(e->get_x()) = 'w';
+        }
+        else if(e->is_ground() == true && e->is_wall() == false){
+            lmap->at(e->get_y()).at(e->get_x()) = 'g';
         }
         else{
             lmap->at(e->get_y()).at(e->get_x()) = 'e';

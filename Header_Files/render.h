@@ -13,6 +13,9 @@ class Render {
     friend class Screen;
     friend class Game_Map;
     public:
+        const static int render_cycle = 1;
+        static int iter_since_last_render;
+        static void inc_render_clock();
         static void clear_screen();
         static void draw_unit(Entity *e);
         static void refresh_screen(Game_Map &m);

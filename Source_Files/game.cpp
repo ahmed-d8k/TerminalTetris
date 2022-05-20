@@ -18,7 +18,7 @@ Game::Game():
     p(Player()),
     w(Wall()),
     game_clock(0),
-    tick_interval(100),
+    tick_interval(10),
     running(true)
     {}
 
