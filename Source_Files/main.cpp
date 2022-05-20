@@ -21,10 +21,10 @@
         //Z Left
         //T
         //Line
-    //Bottom wall needs to be recognized as a place collision
+    //Bottom wall needs to be recognized as a place collision DONE
+    //Collision Partially Done
     //Player Control
-    //Collision
-    //Check if row full, rmove and drop structure
+    //Tetris row deletion
 
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object

@@ -12,7 +12,6 @@ class P_Block{
         int size, pc_countdown, max_pc_countdown;
         char body;
         std::vector<Block_Unit*> p_vec;
-        //std::vector<Block_Unit*> pb_vec;
     public:
         P_Block(int x, char c);
         virtual ~P_Block();

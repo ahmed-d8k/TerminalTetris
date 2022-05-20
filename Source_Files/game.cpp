@@ -7,11 +7,6 @@
 
 #include <iostream>
 
-        //Game();
-        //~Game();
-        //void start();
-        //void engine();
-
 Game::Game():
     m(Game_Map()),
     lm(Logic_Map()),

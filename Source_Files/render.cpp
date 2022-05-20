@@ -18,7 +18,6 @@ void Render::draw_unit(Entity *e){
 
 void Render::draw_screen(Entity *e){}
 
-//New implementation for this later. HXW Array that contains all the pieces and their position. Update the HXW Array and then paint this
 void Render::render_engine(Game_Map &m){
     std::vector<std::vector<char>> *map = m.get_map();
     for (std::vector<char> row : *map){
