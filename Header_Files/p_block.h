@@ -16,11 +16,12 @@ class P_Block{
         P_Block(int x, char c);
         virtual ~P_Block();
         virtual void rotate() =0;
-        virtual void shift_left() =0;
-        virtual void shift_right() =0;
+        void shift_left();
+        void shift_right();
         void fall_down ();
         bool ground_collision(Logic_Map &lm);
-        bool wall_collision(Logic_Map &lm);
+        bool left_collision(Logic_Map &lm);
+        bool right_collision(Logic_Map &lm);
         void set_ground();
 
 };

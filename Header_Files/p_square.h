@@ -8,9 +8,10 @@ class P_Square: public P_Block{
         P_Square();
         ~P_Square();
         void rotate();
-        void shift_left();
-        void shift_right();
+        void shift_left(); //Maybe Remove this
+        void shift_right(); //Maybe remove this
         void fall_down();
+        
 
 };
 

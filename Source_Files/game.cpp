@@ -1,3 +1,5 @@
+#include <iostream>
+#include <windows.h>
 
 #include "..\Header_Files\game.h"
 #include "..\Header_Files\game_map.h"
@@ -5,7 +7,7 @@
 #include "..\Header_Files\wall.h"
 #include "..\Header_Files\logic_map.h"
 
-#include <iostream>
+
 
 Game::Game():
     m(Game_Map()),
