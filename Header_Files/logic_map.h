@@ -5,7 +5,6 @@
 #include <deque>
 
 #include "screen.h"
-#include "entity.h"
 
 
 

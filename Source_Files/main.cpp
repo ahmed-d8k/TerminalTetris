@@ -22,9 +22,12 @@
         //T
         //Line
     //Bottom wall needs to be recognized as a place collision DONE
-    //Collision Partially Done
-    //Player Control
+    //Collision DONE
+    //Player Control DONE
     //Tetris row deletion
+        //Bizarre bug right now, odd rows dont exist on one iteration, exist on the next
+    //Tetris defeat condition
+        //If blocks
 
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object

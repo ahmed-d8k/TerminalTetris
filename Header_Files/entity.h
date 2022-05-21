@@ -2,6 +2,9 @@
 #define ENTITY_H
 
 #include <deque>
+#include <vector>
+
+#include "logic_map.h"
 
 class Entity{
     protected:
@@ -21,7 +24,11 @@ class Entity{
         void set_x(int new_x);
         void set_y(int new_y);
         void set_ground_true();
-        //virtual int temp() =0;
+
+        bool static row_full(std::vector<char> row);
+        void static clear_row(int row_num);
+        void static drop_all(int rows_removed);
+        void static check_rows(Logic_Map &lm);//This function really does not belong here
 };
 
 #endif

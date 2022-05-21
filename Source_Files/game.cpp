@@ -6,6 +6,7 @@
 #include "..\Header_Files\player.h"
 #include "..\Header_Files\wall.h"
 #include "..\Header_Files\logic_map.h"
+#include "..\Header_Files\entity.h"
 
 
 
@@ -38,10 +39,12 @@ void Game::inc_game_clock(){
 
 void Game::engine(){
     if(game_clock == 0){m.update_map(); lm.update_lmap();} //Boundary Case
+    
 
     inc_game_clock();
     if((game_clock % tick_interval) == 0){
         p.movement_engine(lm);
+        Entity::check_rows(lm);
 
         m.update_map();
         lm.update_lmap();

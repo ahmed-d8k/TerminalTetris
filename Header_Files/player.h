@@ -15,6 +15,7 @@ class Player{
         void fall(Logic_Map &lm); //Temp argument
         void player_right();
         void player_left();
+        void player_fall();
         void place_pb();
         void movement_engine(Logic_Map &lm);
         void get_next_pb();

@@ -37,6 +37,10 @@ void Player::player_right(){
     pb->shift_right();
 }
 
+void Player::player_fall(){
+    pb->fall_down();
+}
+
 void Player::place_pb(){
     if(place_count!=place_max){
         place_count++;
@@ -81,11 +85,13 @@ void Player::movement_engine(Logic_Map &lm){
             if(!right_collish){player_right(); }
             break;
         case 'P': //Player Down Faster
+            if(!place_collish){player_fall(); }
             break;
         case 'p': //Pause Game
             break;
     }
     
+    place_collish = pb->ground_collision(lm);
     if(!place_collish){place_count = 0; fall(lm); }
     else if(place_collish){place_pb(); }
 }
