@@ -15,7 +15,7 @@ class P_Block{
     public:
         P_Block(int x, char c);
         virtual ~P_Block();
-        virtual void rotate() =0;
+        void rotate();
         void shift_left();
         void shift_right();
         void fall_down ();

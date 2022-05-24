@@ -3,11 +3,12 @@
 
 #include "..\Header_Files\player.h"
 #include "..\Header_Files\p_square.h"
+#include "..\Header_Files\p_lr.h"
 #include "..\Header_Files\logic_map.h"
 #include "..\Header_Files\entity.h" //remopve prob
 
 Player::Player(): 
-    pb(new P_Square()),
+    pb(new P_LR()),
     fall_cycle(3),
     cycles_since_last_fall(0),
     place_count(0),
@@ -41,6 +42,10 @@ void Player::player_fall(){
     pb->fall_down();
 }
 
+void Player::player_rotate(){
+    pb->rotate();
+}
+
 void Player::place_pb(){
     if(place_count!=place_max){
         place_count++;
@@ -67,8 +72,6 @@ char Player::handle_kb(){
     else{return in1; }
 }
 
-//When block touches wall it can no longer move, wrong
-//Blocks cant fall into the ground but it can shift left and right into it
 void Player::movement_engine(Logic_Map &lm){
     place_collish = pb->ground_collision(lm);
     left_collish = pb->left_collision(lm);
@@ -86,6 +89,9 @@ void Player::movement_engine(Logic_Map &lm){
             break;
         case 'P': //Player Down Faster
             if(!place_collish){player_fall(); }
+            break;
+        case 'r': //Player Rotate
+            if(!place_collish && !left_collish && !right_collish){player_rotate(); }
             break;
         case 'p': //Pause Game
             break;

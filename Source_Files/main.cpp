@@ -24,14 +24,14 @@
     //Bottom wall needs to be recognized as a place collision DONE
     //Collision DONE
     //Player Control DONE
-    //Tetris row deletion
-        //Bizarre bug right now, odd rows dont exist on one iteration, exist on the next
+    //Tetris row deletion DONE
     //Tetris defeat condition
-        //If blocks
+        //If blocks get to a certain height end game
 
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object
-    //Time handling needs to be shared by both rendering and game
+    //Row completing dropping results in the player also dropping, this should not happen
+    //Squares can "Rotate". prevent this
 int main(){
     Game g;
     while(g.is_running()){
@@ -43,7 +43,7 @@ int main(){
         //Render::refresh_screen(g.get_map());
         //Render::refresh_screen(g.get_lmap());
         Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
         
 
     }

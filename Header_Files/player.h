@@ -16,6 +16,7 @@ class Player{
         void player_right();
         void player_left();
         void player_fall();
+        void player_rotate();
         void place_pb();
         void movement_engine(Logic_Map &lm);
         void get_next_pb();

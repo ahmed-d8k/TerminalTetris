@@ -78,3 +78,23 @@ bool P_Block::right_collision(Logic_Map &lm){
     }
     return false;
 }
+
+void P_Block::rotate(){
+    bool first_block = true;
+    int orig_x;
+    int orig_y;
+    int new_x;
+    int new_y;
+    for(Block_Unit *bu: p_vec)
+        if(first_block){
+            first_block = false;
+            orig_x = bu->get_x();
+            orig_y = bu->get_y();
+        }
+        else{
+            new_x = orig_x - (bu->get_y()-orig_y);
+            new_y = orig_y + (bu->get_x()-orig_x);
+            bu->set_x(new_x);
+            bu->set_y(new_y);
+        }
+}
