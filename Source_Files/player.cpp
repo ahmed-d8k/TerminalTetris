@@ -4,7 +4,13 @@
 #include "..\Header_Files\player.h"
 #include "..\Header_Files\p_square.h"
 #include "..\Header_Files\p_lr.h"
+#include "..\Header_Files\p_ll.h"
+#include "..\Header_Files\p_t.h"
+#include "..\Header_Files\p_zr.h"
+#include "..\Header_Files\p_zl.h"
+#include "..\Header_Files\p_line.h"
 #include "..\Header_Files\logic_map.h"
+
 #include "..\Header_Files\entity.h" //remopve prob
 
 Player::Player(): 
@@ -60,7 +66,31 @@ void Player::place_pb(){
 //Update this function later to roll between all p_block types
 void Player::get_next_pb(){
     delete pb;
-    pb = new P_Square();
+    auto roll = []() {return rand() % 7 + 1; };
+    switch(roll()){
+        case 1:
+            pb = new P_Square();
+            break;
+        case 2:
+            pb = new P_LR();
+            break;
+        case 3:
+            pb = new P_LL();
+            break;
+        case 4:
+            pb = new P_T();
+            break;
+        case 5:
+            pb = new P_ZL();
+            break;
+        case 6:
+            pb = new P_ZR();
+            break;
+        case 7:
+            pb = new P_Line();
+            break;
+    }
+    
 }
 
 char Player::handle_kb(){
