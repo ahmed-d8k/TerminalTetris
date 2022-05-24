@@ -76,20 +76,22 @@ void Entity::drop_all(int row_num){
     }
 }
 
-void Entity::check_rows(Logic_Map &lm){
+int Entity::check_rows(Logic_Map &lm){
     std::vector<std::vector<char>> *lmap = lm.get_lmap();
     bool full = false;
     int row_num = 0;
+    int cleared_rows = 0;
     for(std::vector<char> row: *lmap){
         full = row_full(row);
         if(full){
             clear_row(row_num);
             drop_all(row_num);
+            cleared_rows++;
             //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
         }
         row_num++;
     }
-    
+    return cleared_rows;
     //drop_all(rows_removed);
 }

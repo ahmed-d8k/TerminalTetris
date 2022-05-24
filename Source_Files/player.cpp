@@ -21,9 +21,14 @@ Player::Player():
     place_max(5),
     left_collish(false),
     right_collish(false),
-    place_collish(false)
+    place_collish(false),
+    request_end(false),
+    request_pause(false)
  {} //Eventually this will randomly select from all player types
 Player::~Player(){delete pb; }
+
+bool Player::get_req_end(){return request_end; }
+bool Player::get_req_p(){return request_pause; }
 
 void Player::fall(Logic_Map &lm){
     
@@ -110,6 +115,7 @@ void Player::movement_engine(Logic_Map &lm){
     if(_kbhit()){input = handle_kb(); }
     switch(input){
         case 'q': //Quit Game
+            request_end = true;
             break;
         case 'K': //Player Left
             if(!left_collish){player_left(); }
@@ -124,12 +130,26 @@ void Player::movement_engine(Logic_Map &lm){
             if(!place_collish && !left_collish && !right_collish){player_rotate(); }
             break;
         case 'p': //Pause Game
+            request_pause = !request_pause;
             break;
     }
     
     place_collish = pb->ground_collision(lm);
     if(!place_collish){place_count = 0; fall(lm); }
     else if(place_collish){place_pb(); }
+}
+
+void Player::paused_engine(){
+    char input;
+    if(_kbhit()){input = handle_kb(); }
+    switch(input){
+        case 'q': //Quit Game
+            request_end = true;
+            break;
+        case 'p': //Pause Game
+            request_pause = !request_pause;
+            break;
+    }
 }
 
 

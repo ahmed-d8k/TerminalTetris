@@ -28,7 +28,7 @@ class Entity{
         bool static row_full(std::vector<char> row);
         void static clear_row(int row_num);
         void static drop_all(int rows_removed);
-        void static check_rows(Logic_Map &lm);//This function really does not belong here
+        int static check_rows(Logic_Map &lm);//This function really does not belong here
 };
 
 #endif

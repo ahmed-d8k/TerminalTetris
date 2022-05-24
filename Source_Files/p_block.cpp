@@ -85,7 +85,7 @@ void P_Block::rotate(){
     int orig_y;
     int new_x;
     int new_y;
-    for(Block_Unit *bu: p_vec)
+    for(Block_Unit *bu: p_vec){
         if(first_block){
             first_block = false;
             orig_x = bu->get_x();
@@ -94,7 +94,21 @@ void P_Block::rotate(){
         else{
             new_x = orig_x - (bu->get_y()-orig_y);
             new_y = orig_y + (bu->get_x()-orig_x);
+            if(new_x < 0 || new_y < 0){return; }
+        }
+    }
+    for(Block_Unit *bu: p_vec){
+        if(first_block){
+            first_block = false;
+            orig_x = bu->get_x();
+            orig_y = bu->get_y();
+        }
+        else{
+            new_x = orig_x - (bu->get_y()-orig_y);
+            new_y = orig_y + (bu->get_x()-orig_x);
+            if(new_x < 0 || new_y < 0){return; }
             bu->set_x(new_x);
             bu->set_y(new_y);
         }
+    }
 }

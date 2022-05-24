@@ -14,17 +14,21 @@ class Game{
         Logic_Map lm;
         Player p;
         Wall w;
-        int game_clock, tick_interval;
-        bool running;
+        int game_clock, tick_interval, score;
+        bool running, paused;
     public:
         Game();
         ~Game();
         Game_Map& get_map();
         Logic_Map& get_lmap();
         bool is_running();
+        bool is_paused();
+
+        void end_game();
         void inc_game_clock();
         void start();
         void engine();
+        void defeat();
 
 
 };

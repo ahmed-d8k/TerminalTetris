@@ -39,14 +39,20 @@ int main(){
         //Game Logic
         g.engine();
 
-        //Render
-        //Render::refresh_screen(g.get_map());
-        //Render::refresh_screen(g.get_lmap());
-        Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
+        
+        if(!g.is_paused()){
+            //Render
+            Render::refresh_screen(g.get_map());
+            //Render::refresh_screen(g.get_lmap());
+            //Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
+        }
+
+        
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         
 
     }
-
-    std::cout << "Program Finished Succesfully\n";
+    system("cls");
+    std::cout << "THANKS FOR PLAYING\n";
+    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 }
