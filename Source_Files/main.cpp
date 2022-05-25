@@ -27,7 +27,7 @@
     //Tetris row deletion DONE
     //Tetris defeat condition
         //If blocks get to a certain height end game
-    //Don't let player drop
+    //Don't let player drop DONE
     //Scoreboard DONE
     //Paused message DONE
     //Ability to restart game
@@ -56,7 +56,19 @@ int main(){
         
 
     }
-    system("cls");
-    std::cout << "THANKS FOR PLAYING\n";
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    
+
+
+
+    if(g.is_lost()){
+        system("cls");
+        std::cout << "You Lost.\n";
+        std::cout << "Your Score for this session was: " << g.get_score()*100 << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    }
+    else{
+        system("cls");
+        std::cout << "THANKS FOR PLAYING\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    }
 }

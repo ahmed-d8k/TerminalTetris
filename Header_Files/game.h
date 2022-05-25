@@ -15,7 +15,7 @@ class Game{
         Player p;
         Wall w;
         int game_clock, tick_interval, score;
-        bool running, paused;
+        bool running, paused, lost_game;
     public:
         Game();
         ~Game();
@@ -26,12 +26,13 @@ class Game{
 
         bool is_running();
         bool is_paused();
+        bool is_lost();
 
         void end_game();
         void inc_game_clock();
         void start();
         void engine();
-        void defeat();
+        void check_if_lost();
 
 
 };

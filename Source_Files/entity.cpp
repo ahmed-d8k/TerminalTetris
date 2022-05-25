@@ -72,7 +72,7 @@ void Entity::clear_row(int row_num){
 
 void Entity::drop_all(int row_num){
     for(Entity *e: entities){
-        if(e->get_y() < row_num && e->is_wall() == false){e->set_y(e->get_y() + 1); }
+        if(e->get_y() < row_num && e->is_wall() == false && e->is_ground() == true){e->set_y(e->get_y() + 1); }
     }
 }
 

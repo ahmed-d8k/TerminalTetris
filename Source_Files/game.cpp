@@ -20,7 +20,8 @@ Game::Game():
     tick_interval(10),
     score(0),
     running(true),
-    paused(false)
+    paused(false),
+    lost_game(false)
     {}
 
 Game::~Game(){} //TODO
@@ -33,6 +34,7 @@ int Game::get_score(){return score; }
 
 bool Game::is_running(){return running; }
 bool Game::is_paused(){return paused; }
+bool Game::is_lost(){return lost_game; }
 
 void Game::end_game(){running = false; }
 
@@ -45,6 +47,18 @@ void Game::inc_game_clock(){
     }
 }
 
+void Game::check_if_lost(){
+    int curr_row = 0;
+    int end_row = 2;
+    for (std::vector<char> row: *lm.get_lmap()){
+        for(char c: row){
+            if(c == 'g'){lost_game = true; running = false; }
+            if(curr_row == end_row){return; }
+        }
+        curr_row++;
+    }
+}
+
 void Game::engine(){
     if(p.get_req_end()){end_game(); return; }
 
@@ -52,6 +66,7 @@ void Game::engine(){
 
     if(!p.get_req_p()){
         paused = false;
+        check_if_lost();
         inc_game_clock();
         if((game_clock % tick_interval) == 0){
             p.movement_engine(lm);
