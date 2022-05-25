@@ -25,7 +25,7 @@ void Render::refresh_screen(Game &g){
         std::cout << "Game is Paused." << std::endl;
     }
     else{
-        std::cout << "Score: " << g.get_score()*100 << std::endl;
+        std::cout << "Score: " << g.get_score() << std::endl;
     }
 
 }

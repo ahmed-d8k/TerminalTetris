@@ -70,7 +70,7 @@ void Game::engine(){
         inc_game_clock();
         if((game_clock % tick_interval) == 0){
             p.movement_engine(lm);
-            score += Entity::check_rows(lm);
+            score += 100*Entity::check_rows(lm);
             m.update_map();
             lm.update_lmap();
         }
