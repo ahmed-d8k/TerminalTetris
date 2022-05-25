@@ -18,6 +18,18 @@ void Render::draw_unit(Entity *e){
 
 void Render::draw_screen(Entity *e){}
 
+void Render::refresh_screen(Game &g){
+    Render::clear_screen();
+    Render::render_engine(g.get_map());
+    if(g.is_paused()){
+        std::cout << "Game is Paused." << std::endl;
+    }
+    else{
+        std::cout << "Score: " << g.get_score()*100 << std::endl;
+    }
+
+}
+
 void Render::render_engine(Game_Map &m){
     std::vector<std::vector<char>> *map = m.get_map();
     for (std::vector<char> row : *map){

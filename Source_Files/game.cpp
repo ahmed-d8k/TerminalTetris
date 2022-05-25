@@ -10,6 +10,7 @@
 
 
 
+
 Game::Game():
     m(Game_Map()),
     lm(Logic_Map()),
@@ -27,6 +28,8 @@ Game::~Game(){} //TODO
 //Getter
 Game_Map& Game::get_map(){return m; }
 Logic_Map& Game::get_lmap(){return lm; }
+int Game::get_score(){return score; }
+
 
 bool Game::is_running(){return running; }
 bool Game::is_paused(){return paused; }

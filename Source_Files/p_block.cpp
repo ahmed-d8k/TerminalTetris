@@ -106,9 +106,9 @@ void P_Block::rotate(){
         else{
             new_x = orig_x - (bu->get_y()-orig_y);
             new_y = orig_y + (bu->get_x()-orig_x);
-            if(new_x < 0 || new_y < 0){return; }
             bu->set_x(new_x);
             bu->set_y(new_y);
+
         }
     }
 }

@@ -13,25 +13,31 @@
     //Basic Rendering DONE
     //Create Boundary Object DONE
     //Create Map DONE
-    //Create Player Block
+    //Create Player Block DONE
         //Square DONE
-        //L Right
-        //L Left
-        //Z Right
-        //Z Left
-        //T
-        //Line
+        //L Right DONE
+        //L Left DONE
+        //Z Right DONE
+        //Z Left DONE
+        //T DONE
+        //Line DONE
     //Bottom wall needs to be recognized as a place collision DONE
     //Collision DONE
     //Player Control DONE
     //Tetris row deletion DONE
     //Tetris defeat condition
         //If blocks get to a certain height end game
+    //Don't let player drop
+    //Scoreboard DONE
+    //Paused message DONE
+    //Ability to restart game
 
 //Issues
     //Possible problem of some objects having pointers to entitys that were deleted by another object
     //Row completing dropping results in the player also dropping, this should not happen
     //Squares can "Rotate". prevent this
+
+
 int main(){
     Game g;
     while(g.is_running()){
@@ -40,13 +46,11 @@ int main(){
         g.engine();
 
         
-        if(!g.is_paused()){
-            //Render
-            Render::refresh_screen(g.get_map());
-            //Render::refresh_screen(g.get_lmap());
-            //Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
-        }
 
+        //Render
+        Render::refresh_screen(g);
+        //Render::refresh_screen(g.get_lmap());
+        //Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
         
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         

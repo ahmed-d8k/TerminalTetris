@@ -21,6 +21,9 @@ class Game{
         ~Game();
         Game_Map& get_map();
         Logic_Map& get_lmap();
+
+        int get_score();
+
         bool is_running();
         bool is_paused();
 
