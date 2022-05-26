@@ -51,7 +51,7 @@ int main(){
         //Render::refresh_screen(g.get_lmap());
         //Render::refresh_screen(g.get_map(), g.get_lmap()); //Remember previous functions dont have render time logic
         
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(std::chrono::milliseconds(16));
         
 
     }

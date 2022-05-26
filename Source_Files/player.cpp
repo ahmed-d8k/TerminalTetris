@@ -15,20 +15,22 @@
 
 Player::Player(): 
     pb(new P_LR()),
-    fall_cycle(3),
+    fall_cycle(50),
     cycles_since_last_fall(0),
     place_count(0),
-    place_max(5),
+    place_max(15),
     left_collish(false),
     right_collish(false),
     place_collish(false),
     request_end(false),
-    request_pause(false)
+    request_pause(false),
+    new_pb(false)
  {} //Eventually this will randomly select from all player types
 Player::~Player(){delete pb; }
 
 bool Player::get_req_end(){return request_end; }
 bool Player::get_req_p(){return request_pause; }
+bool Player::get_new_pb(){return new_pb; }
 
 void Player::fall(Logic_Map &lm){
     
@@ -65,6 +67,7 @@ void Player::place_pb(){
         place_count = 0;
         pb->set_ground();
         get_next_pb();
+        new_pb = true;
     }
 }
 
@@ -108,6 +111,7 @@ char Player::handle_kb(){
 }
 
 void Player::movement_engine(Logic_Map &lm){
+    new_pb = false;
     place_collish = pb->ground_collision(lm);
     left_collish = pb->left_collision(lm);
     right_collish = pb->right_collision(lm);

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <bits/stdc++.h>
 
 #include "..\Header_Files\game.h"
 #include "..\Header_Files\game_map.h"
@@ -68,12 +69,20 @@ void Game::engine(){
         paused = false;
         check_if_lost();
         inc_game_clock();
-        if((game_clock % tick_interval) == 0){
-            p.movement_engine(lm);
-            score += 100*Entity::check_rows(lm);
-            m.update_map();
-            lm.update_lmap();
-        }
+
+        p.movement_engine(lm);
+        int rows_removed = Entity::check_rows(lm);
+        if(rows_removed > 0){score += 98 + pow(4, rows_removed); }
+        if(p.get_new_pb()){score += 10; }
+        m.update_map();
+        lm.update_lmap();
+
+        // if((game_clock % tick_interval) == 0){
+        //     p.movement_engine(lm);
+        //     score += 100*Entity::check_rows(lm);
+        //     m.update_map();
+        //     lm.update_lmap();
+        // }
     }
     else{
         p.paused_engine();
