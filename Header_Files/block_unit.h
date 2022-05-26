@@ -1,7 +1,6 @@
 #ifndef BLOCK_UNIT_H
 #define BLOCK_UNIT_H
 
-
 #include "entity.h"
 
 class Block_Unit: public Entity{

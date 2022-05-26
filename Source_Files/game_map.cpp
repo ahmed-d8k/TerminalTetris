@@ -19,16 +19,10 @@ std::vector<std::vector<char>>* Game_Map::get_map(){
     return map;
 }
 
-
 //Don't like this implementation atm
 void Game_Map::clear_map(){
     delete map;
     map = new std::vector<std::vector<char>> (Screen::SCREEN_HEIGHT, std::vector<char>(Screen::SCREEN_WIDTH, bg));
-
-
-    //for (std::vector<char> row : *map){
-    //    row.assign(Screen::SCREEN_WIDTH, bg);
-    //}
 }
 
 void Game_Map::update_map(){

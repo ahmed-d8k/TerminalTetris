@@ -8,8 +8,6 @@
 #include "logic_map.h"
 #include "game.h"
 
-
-
 class Render {
     friend class Screen;
     friend class Game_Map;

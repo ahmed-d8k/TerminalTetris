@@ -24,7 +24,6 @@ class Entity{
         void set_x(int new_x);
         void set_y(int new_y);
         void set_ground_true();
-
         bool static row_full(std::vector<char> row);
         void static clear_row(int row_num);
         void static drop_all(int rows_removed);

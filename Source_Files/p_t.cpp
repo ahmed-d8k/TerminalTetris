@@ -1,4 +1,3 @@
-
 #include "..\Header_Files\p_t.h"
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
@@ -13,5 +12,4 @@ P_T::P_T():
     p_vec.push_back(new Block_Unit(Screen::SCREEN_WIDTH/2, 1, body));
 }
 
-//Not Implemented Yet
 P_T::~P_T(){}

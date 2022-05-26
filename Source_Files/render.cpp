@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-
 #include "..\Header_Files\entity.h"
 #include "..\Header_Files\render.h"
 #include "..\Header_Files\screen.h"
@@ -16,8 +15,6 @@ void Render::draw_unit(Entity *e){
     std::cout << e->get_body();
 }
 
-void Render::draw_screen(Entity *e){}
-
 void Render::refresh_screen(Game &g){
     Render::clear_screen();
     Render::render_engine(g.get_map());
@@ -27,7 +24,6 @@ void Render::refresh_screen(Game &g){
     else{
         std::cout << "Score: " << g.get_score() << std::endl;
     }
-
 }
 
 void Render::render_engine(Game_Map &m){
@@ -43,7 +39,6 @@ void Render::render_engine(Game_Map &m){
 void Render::refresh_screen(Game_Map &m){
     Render::clear_screen();
     Render::render_engine(m);
-
 }
 
 void Render::render_engine(Logic_Map &m){
@@ -59,13 +54,11 @@ void Render::render_engine(Logic_Map &m){
 void Render::refresh_screen(Logic_Map &m){
     Render::clear_screen();
     Render::render_engine(m);
-
 }
 
 void Render::render_engine(Game_Map &m, Logic_Map &lm){
     std::vector<std::vector<char>> *map = m.get_map();
     std::vector<std::vector<char>> *lmap = lm.get_lmap();
-
     std::vector<std::vector<char>>::const_iterator m_row_it = map->begin();
     std::vector<std::vector<char>>::const_iterator lm_row_it = lmap->begin();
     for (; m_row_it != map->end() && lm_row_it != lmap->end(); m_row_it++, lm_row_it++){
@@ -85,13 +78,9 @@ void Render::render_engine(Game_Map &m, Logic_Map &lm){
 void Render::refresh_screen(Game_Map &m, Logic_Map &lm){
     Render::clear_screen();
     Render::render_engine(m, lm);
-    /*
-    if(Render::iter_since_last_render % Render::render_cycle == 0){
-        
-    }
-    inc_render_clock();*/
 }
 
+/*Check if anyone needs this, if not remove*/
 void Render::inc_render_clock(){
     if(Render::iter_since_last_render <= 100000){
         Render::iter_since_last_render++;
@@ -99,7 +88,6 @@ void Render::inc_render_clock(){
     else{
         Render::iter_since_last_render = 1;
     }
-    
 }
 
 

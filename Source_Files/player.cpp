@@ -11,7 +11,7 @@
 #include "..\Header_Files\p_line.h"
 #include "..\Header_Files\logic_map.h"
 
-#include "..\Header_Files\entity.h" //remopve prob
+#include "..\Header_Files\entity.h" /*remopve prob*/
 
 Player::Player(): 
     pb(new P_LR()),
@@ -25,15 +25,16 @@ Player::Player():
     request_end(false),
     request_pause(false),
     new_pb(false)
- {} //Eventually this will randomly select from all player types
+{}
+
 Player::~Player(){delete pb; }
 
+/*Getters*/
 bool Player::get_req_end(){return request_end; }
 bool Player::get_req_p(){return request_pause; }
 bool Player::get_new_pb(){return new_pb; }
 
 void Player::fall(Logic_Map &lm){
-    
     if(cycles_since_last_fall == fall_cycle){
         pb->fall_down();
         cycles_since_last_fall = 0;
@@ -71,7 +72,6 @@ void Player::place_pb(){
     }
 }
 
-//Update this function later to roll between all p_block types
 void Player::get_next_pb(){
     delete pb;
     auto roll = []() {return rand() % 7 + 1; };
@@ -118,26 +118,25 @@ void Player::movement_engine(Logic_Map &lm){
     char input;
     if(_kbhit()){input = handle_kb(); }
     switch(input){
-        case 'q': //Quit Game
+        case 'q': /*Quit Game*/
             request_end = true;
             break;
-        case 'K': //Player Left
+        case 'K': /*Player Left*/
             if(!left_collish){player_left(); }
             break; 
-        case 'M': //Player Right
+        case 'M': /*Player Right*/
             if(!right_collish){player_right(); }
             break;
-        case 'P': //Player Down Faster
+        case 'P': /*Player Down Faster*/
             if(!place_collish){player_fall(); }
             break;
-        case 'r': //Player Rotate
+        case 'r': /*Player Rotate*/
             if(!place_collish && !left_collish && !right_collish){player_rotate(); }
             break;
-        case 'p': //Pause Game
+        case 'p': /*Pause Game*/
             request_pause = !request_pause;
             break;
     }
-    
     place_collish = pb->ground_collision(lm);
     if(!place_collish){place_count = 0; fall(lm); }
     else if(place_collish){place_pb(); }
@@ -147,10 +146,10 @@ void Player::paused_engine(){
     char input;
     if(_kbhit()){input = handle_kb(); }
     switch(input){
-        case 'q': //Quit Game
+        case 'q': /*Quit Game*/
             request_end = true;
             break;
-        case 'p': //Pause Game
+        case 'p': /*Pause Game*/
             request_pause = !request_pause;
             break;
     }

@@ -1,10 +1,6 @@
-
 #include <algorithm>
 #include <deque>
 #include <vector>
-#include <chrono> //debugging
-#include <thread> //debugging
-#include <iostream> //debugging
 
 #include "..\Header_Files\entity.h"
 #include "..\Header_Files\logic_map.h"
@@ -15,9 +11,6 @@ Entity::Entity(int x, int y, char c, bool g, bool w): x(x), y(y), body(c), groun
 Entity::~Entity(){
     entities.erase(std::remove(entities.begin(), entities.end(), this), entities.end()); 
     }
-    //Incredibly hard to find bug but found it. Can't delete things will iterating through a deque. This causes the iterator to skip entries
-
-
 
 //Getter
 int Entity::get_x(){return x; }
@@ -40,27 +33,6 @@ bool Entity::row_full(std::vector<char> row){
 }
 
 void Entity::clear_row(int row_num){
-    /**for(Entity *e: entities){
-        if(e->get_x() % 2 != 0){
-            std::cout << "X Val: " << e->get_x() << std::endl;
-            std::cout << "Y Val: " << e->get_y() << std::endl;
-            std::cout << "Is Wall: " << e->is_wall() << std::endl<<std::endl;
-        }
-
-            
-        if(e->get_y() == row_num && e->is_wall() == false){
-            std::cout << "-------------------------------------------\n";
-            std::cout << "ROW NUM: " << row_num << std::endl;
-            std::cout << "X Val: " << e->get_x() << std::endl;
-            std::cout << "Y Val: " << e->get_y() << std::endl;
-            std::cout << "Is Wall: " << e->is_wall() << std::endl;
-            delete e;
-            std::cout << "Deleted this Entity\n";
-            std::cout << "-------------------------------------------\n";
-        }
-        
-    }**/
-
     std::deque<Entity*>::const_iterator entity_it = entities.begin();
     for(; entity_it != entities.end(); entity_it++){
         if((*entity_it)->get_y() == row_num && (*entity_it)->is_wall() == false){
@@ -87,11 +59,8 @@ int Entity::check_rows(Logic_Map &lm){
             clear_row(row_num);
             drop_all(row_num);
             cleared_rows++;
-            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-
         }
         row_num++;
     }
     return cleared_rows;
-    //drop_all(rows_removed);
 }

@@ -7,8 +7,6 @@
 #include "screen.h"
 #include "entity.h"
 
-
-
 class Game_Map{
     friend class Entity;
     protected:
@@ -17,13 +15,10 @@ class Game_Map{
     public:
         Game_Map();
         ~Game_Map();
-
         std::vector<std::vector<char>>* get_map();
         void update_map();
         void clear_map();
         void paint_map();
-
-
 };
 
 #endif

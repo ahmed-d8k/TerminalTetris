@@ -23,7 +23,6 @@ class P_Block{
         bool left_collision(Logic_Map &lm);
         bool right_collision(Logic_Map &lm);
         void set_ground();
-
 };
 
 #endif

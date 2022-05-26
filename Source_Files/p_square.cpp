@@ -1,4 +1,3 @@
-
 #include "..\Header_Files\p_square.h"
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
@@ -13,7 +12,6 @@ P_Square::P_Square():
     p_vec.push_back(new Block_Unit(Screen::SCREEN_WIDTH/2 - 1, 1, body));
 }
 
-//Not Implemented Yet
 P_Square::~P_Square(){}
 
 

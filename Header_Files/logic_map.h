@@ -6,8 +6,6 @@
 
 #include "screen.h"
 
-
-
 class Logic_Map{
     friend class Entity;
     protected:
@@ -16,13 +14,10 @@ class Logic_Map{
     public:
         Logic_Map();
         ~Logic_Map();
-
         std::vector<std::vector<char>>* get_lmap();
         void update_lmap();
         void clear_lmap();
         void paint_lmap();
-
-
 };
 
 #endif

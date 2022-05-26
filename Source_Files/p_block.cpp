@@ -10,9 +10,7 @@ P_Block::P_Block(int x, char c):
     pc_countdown(0),
     max_pc_countdown(5),
     body(c)
-{
-
-}
+{}
 
 P_Block::~P_Block(){}
 
@@ -36,11 +34,10 @@ void P_Block::shift_right(){
 
 bool P_Block::ground_collision(Logic_Map &lm){
     std::vector<std::vector<char>> *map = lm.get_lmap();
-
     char pos_state;
     for(Block_Unit *b: p_vec){
         pos_state = (*map)[b->get_y()+1][b->get_x()];
-        if(pos_state == 'G' || pos_state == 'g'){ //Need to give 'g' and 'G' variable name
+        if(pos_state == 'G' || pos_state == 'g'){ /*Need to give 'g' and 'G' variable name*/
             return true;
         }
     }
@@ -55,11 +52,10 @@ void P_Block::set_ground(){
 
 bool P_Block::left_collision(Logic_Map &lm){
     std::vector<std::vector<char>> *map = lm.get_lmap();
-
     char pos_state;
     for(Block_Unit *b: p_vec){
         pos_state = (*map)[b->get_y()][b->get_x()-1];
-        if(pos_state == 'w' || pos_state == 'g'){ //Need to give 'w' variable name
+        if(pos_state == 'w' || pos_state == 'g'){ /*Need to give 'w' variable name*/
             return true;
         }
     }
@@ -68,7 +64,6 @@ bool P_Block::left_collision(Logic_Map &lm){
 
 bool P_Block::right_collision(Logic_Map &lm){
     std::vector<std::vector<char>> *map = lm.get_lmap();
-
     char pos_state;
     for(Block_Unit *b: p_vec){
         pos_state = (*map)[b->get_y()][b->get_x()+1];
@@ -108,7 +103,6 @@ void P_Block::rotate(){
             new_y = orig_y + (bu->get_x()-orig_x);
             bu->set_x(new_x);
             bu->set_y(new_y);
-
         }
     }
 }

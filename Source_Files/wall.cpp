@@ -3,7 +3,7 @@
 #include "..\Header_Files\wall_unit.h"
 #include "..\Header_Files\screen.h"
 
-//Height*2 + width - 2
+/*Screen Info: Height*2 + width - 2*/
 
 Wall::Wall():
     unit_count(Screen::SCREEN_HEIGHT*2 + Screen::SCREEN_WIDTH - 2)
@@ -35,7 +35,7 @@ Wall::~Wall(){
     wall_vec.shrink_to_fit();
 }
 
-//Getter
+/*Getter*/
 std::vector<Wall_Unit*>& Wall::get_wall(){
     return wall_vec;
 }

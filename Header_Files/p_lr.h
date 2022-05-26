@@ -3,7 +3,6 @@
 
 #include "p_block.h"
 
-
 class P_LR: public P_Block{
     public:
         P_LR();

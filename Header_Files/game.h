@@ -6,8 +6,6 @@
 #include "Wall.h"
 #include "logic_map.h"
 
-
-
 class Game{
     protected:
         Game_Map m;
@@ -21,20 +19,15 @@ class Game{
         ~Game();
         Game_Map& get_map();
         Logic_Map& get_lmap();
-
         int get_score();
-
         bool is_running();
         bool is_paused();
         bool is_lost();
-
         void end_game();
         void inc_game_clock();
         void start();
         void engine();
         void check_if_lost();
-
-
 };
 
 #endif

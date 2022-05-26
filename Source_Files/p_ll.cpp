@@ -1,4 +1,3 @@
-
 #include "..\Header_Files\p_ll.h"
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
@@ -13,5 +12,4 @@ P_LL::P_LL():
     p_vec.push_back(new Block_Unit(Screen::SCREEN_WIDTH/2 - 1, 2, body));
 }
 
-//Not Implemented Yet
 P_LL::~P_LL(){}

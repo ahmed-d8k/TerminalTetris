@@ -1,4 +1,3 @@
-
 #include "..\Header_Files\p_lr.h"
 #include "..\Header_Files\p_block.h"
 #include "..\Header_Files\block_unit.h"
@@ -13,7 +12,6 @@ P_LR::P_LR():
     p_vec.push_back(new Block_Unit(Screen::SCREEN_WIDTH/2 + 1, 2, body));
 }
 
-//Not Implemented Yet
 P_LR::~P_LR(){}
 
 

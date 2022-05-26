@@ -4,7 +4,7 @@
 #include "..\Header_Files\screen.h"
 #include "..\Header_Files\entity.h"
 
-//In theory could make an abstract map class but not doing that right now
+/*In theory could make an abstract map class but not doing that right now*/
 
 Logic_Map::Logic_Map():
     bg(' ')
@@ -16,21 +16,16 @@ Logic_Map::~Logic_Map(){
     delete lmap;
 }
 
-//Getters
+/*Getters*/
 std::vector<std::vector<char>>* Logic_Map::get_lmap(){
     return lmap;
 }
 
 
-//Don't like this implementation atm
+/*Don't like this implementation atm*/
 void Logic_Map::clear_lmap(){
     delete lmap;
     lmap = new std::vector<std::vector<char>> (Screen::SCREEN_HEIGHT, std::vector<char>(Screen::SCREEN_WIDTH, bg));
-
-
-    //for (std::vector<char> row : *map){
-    //    row.assign(Screen::SCREEN_WIDTH, bg);
-    //}
 }
 
 void Logic_Map::update_lmap(){
@@ -48,7 +43,6 @@ void Logic_Map::update_lmap(){
         else{
             lmap->at(e->get_y()).at(e->get_x()) = 'e';
         }
-        
     }
 }
 

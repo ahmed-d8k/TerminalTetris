@@ -4,7 +4,6 @@
 #include "wall_unit.h"
 #include "vector"
 
-
 class Wall{
     friend class Wall_Unit;
     protected:
